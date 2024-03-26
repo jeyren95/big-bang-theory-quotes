@@ -1,6 +1,8 @@
 package queries
 
 import (
+	"fmt"
+
 	"github.com/jeyren95/big-bang-theory-quotes/db"
 	"github.com/jeyren95/big-bang-theory-quotes/models"
 )
@@ -9,6 +11,7 @@ func InsertQuote(quote models.Quote) error {
 	statement, err := db.DB.Prepare("INSERT INTO quote(quote, character, season, episode, title) VALUES($1, $2, $3, $4, $5)")
 
 	if err != nil {
+		fmt.Print(err)
 		return err
 	}
 	defer statement.Close()
@@ -26,6 +29,7 @@ func GetAllQuotes() ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote")
 
 	if err != nil {
+		fmt.Print(err)
 		return nil, err
 	}
 	defer statement.Close()
@@ -44,6 +48,7 @@ func GetAllQuotes() ([]*models.Quote, error) {
 		err = rows.Scan(&quote.Id, &quote.Quote, &quote.Character, &quote.Season, &quote.Episode, &quote.Title)
 
 		if err != nil {
+			fmt.Print(err)
 			return nil, err
 		}
 

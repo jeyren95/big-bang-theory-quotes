@@ -22,7 +22,7 @@ func InsertQuote(quote models.Quote) error {
 	return nil
 }
 
-func GetAllQuotes() ([]models.Quote, error) {
+func GetAllQuotes() ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote")
 
 	if err != nil {
@@ -30,11 +30,25 @@ func GetAllQuotes() ([]models.Quote, error) {
 	}
 	defer statement.Close()
 
-	_, err = statement.Exec()
+	rows, err := statement.Query()
 
 	if err != nil {
 		return nil, err
 	}
+	defer rows.Close()
 
-	return nil, nil
+	var quotes []*models.Quote
+
+	for rows.Next() {
+		quote := new(models.Quote)
+		err = rows.Scan(&quote.Id, &quote.Quote, &quote.Character, &quote.Season, &quote.Episode, &quote.Title)
+
+		if err != nil {
+			return nil, err
+		}
+
+		quotes = append(quotes, quote)
+	}
+
+	return quotes, nil
 }

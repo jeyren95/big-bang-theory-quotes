@@ -42,13 +42,6 @@
     "title": "Pilot"
   },
   {
-    "quote": "Is this the high IQ sperm bank?",
-    "character": "Leonard",
-    "season": 1,
-    "episode": 1,
-    "title": "Pilot"
-  },
-  {
     "quote": "We live together, but in separate, heterosexual bedrooms.",
     "character": "Leonard",
     "season": 1,
@@ -105,13 +98,6 @@
     "title": "The Luminous Fish Effect"
   },
   {
-    "quote": "I was working with luminous fish and I thought, hey, loom!",
-    "character": "Sheldon",
-    "season": 1,
-    "episode": 4,
-    "title": "The Luminous Fish Effect"
-  },
-  {
     "quote": "I admire your fingering. Maybe sometime you can try that on my instrument.",
     "character": "Leslie Winkle",
     "season": 1,
@@ -131,5 +117,33 @@
     "season": 1,
     "episode": 5,
     "title": "The Hamburger Postulate"
+  },
+  {
+    "quote": "When people are upset, the cultural convention is to bring them hot beverages.",
+    "character": "Sheldon",
+    "season": 1,
+    "episode": 6,
+    "title": "The Middle Earth Paradigm"
+  },
+  {
+    "quote": "There, there.",
+    "character": "Sheldon",
+    "season": 1,
+    "episode": 6,
+    "title": "The Middle Earth Paradigm"
+  },
+  {
+    "quote": "Sure, cut the foreigner in half. There's a billion more from where I came from.",
+    "character": "Raj",
+    "season": 1,
+    "episode": 7,
+    "title": "The Dumping Paradox"
+  },
+  {
+    "quote": "You laugh now, you just wait till you need tech support.",
+    "character": "Sheldon",
+    "season": 1,
+    "episode": 7,
+    "title": "The Dumping Paradox"
   }
 ]

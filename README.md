@@ -17,6 +17,9 @@ cp .env.example .env
 go run main.go
 ```
 
+# Deployment
+This API is currently a WIP, and is only available on localhost
+
 # Tech stack
 - Golang
 - Sqlite3

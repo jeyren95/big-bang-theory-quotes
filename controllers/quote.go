@@ -12,6 +12,17 @@ import (
 	"github.com/jeyren95/big-bang-theory-quotes/queries"
 )
 
+// GetQuotes go doc
+//
+//	@Summary		Get quotes
+//	@Description	get quotes by character, season or episode
+//	@Router			/quotes [get]
+//	@Produce		json
+//	@Success		200			{object}	models.Quote
+//	@Failure		500			{object}	models.ErrorResponse
+//	@Param			character	query		string	false	"search quotes by character"	example("sheldon")
+//	@Param			season		query		string	false	"search quotes by season"		example(1)
+//	@Param			episode		query		string	false	"search quotes by episode"		example(1)
 func GetQuotes(ctx *gin.Context) {
 	character, characterMatch := ctx.GetQuery("character")
 	season, seasonMatch := ctx.GetQuery("season")
@@ -52,6 +63,13 @@ func GetQuotes(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"quotes": quotes})
 }
 
+// GetRandomQuote go doc
+//
+//	@Summary	Get a random quote
+//	@Router		/quotes/random [get]
+//	@Produce	json
+//	@Success	200	{object}	models.Quote
+//	@Failure	500	{object}	models.ErrorResponse
 func GetRandomQuote(ctx *gin.Context) {
 	count, err := queries.GetQuoteCount()
 

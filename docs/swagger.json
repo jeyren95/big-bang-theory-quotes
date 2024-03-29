@@ -1,0 +1,113 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API that returns quotes from the sitcom show Big Bang Theory",
+        "title": "Big Bang Theory Quotes API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "paths": {
+        "/quotes": {
+            "get": {
+                "description": "get quotes by character, season or episode",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get quotes",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "\"sheldon\"",
+                        "description": "search quotes by character",
+                        "name": "character",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "1",
+                        "description": "search quotes by season",
+                        "name": "season",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "1",
+                        "description": "search quotes by episode",
+                        "name": "episode",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Quote"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/quotes/random": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a random quote",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Quote"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Quote": {
+            "type": "object",
+            "properties": {
+                "character": {
+                    "type": "string"
+                },
+                "episode": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "quote": {
+                    "type": "string"
+                },
+                "season": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

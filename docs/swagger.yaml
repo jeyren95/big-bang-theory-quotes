@@ -1,0 +1,74 @@
+definitions:
+  models.ErrorResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  models.Quote:
+    properties:
+      character:
+        type: string
+      episode:
+        type: integer
+      id:
+        type: integer
+      quote:
+        type: string
+      season:
+        type: integer
+      title:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: API that returns quotes from the sitcom show Big Bang Theory
+  title: Big Bang Theory Quotes API
+  version: "1.0"
+paths:
+  /quotes:
+    get:
+      description: get quotes by character, season or episode
+      parameters:
+      - description: search quotes by character
+        example: '"sheldon"'
+        in: query
+        name: character
+        type: string
+      - description: search quotes by season
+        example: "1"
+        in: query
+        name: season
+        type: string
+      - description: search quotes by episode
+        example: "1"
+        in: query
+        name: episode
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Quote'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get quotes
+  /quotes/random:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Quote'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get a random quote
+swagger: "2.0"

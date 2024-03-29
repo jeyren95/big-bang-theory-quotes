@@ -43,6 +43,23 @@ func InsertQuote(quote models.Quote) error {
 	return nil
 }
 
+func GetQuoteById(id int) (*models.Quote, error) {
+	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE id = $1")
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer statement.Close()
+
+	quote := new(models.Quote)
+	if err = statement.QueryRow(id).Scan(&quote.Id, &quote.Quote, &quote.Character, &quote.Season, &quote.Episode, &quote.Title); err != nil {
+		return nil, err
+	}
+
+	return quote, err
+}
+
 func GetAllQuotes() ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote")
 
@@ -184,4 +201,22 @@ func GetQuotesByAllParams(character string, season string, episode string) ([]*m
 		return nil, err
 	}
 	return quotes, nil
+}
+
+func GetQuoteCount() (int, error) {
+	statement, err := db.DB.Prepare("SELECT COUNT(*) FROM quote")
+
+	if err != nil {
+		return -1, err
+	}
+
+	defer statement.Close()
+
+	var count int
+
+	if err = statement.QueryRow().Scan(&count); err != nil {
+		return -1, err
+	}
+
+	return count, err
 }

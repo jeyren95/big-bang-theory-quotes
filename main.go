@@ -22,6 +22,7 @@ func main() {
 		middlewares.MatchQueryParamNames([]string{"character", "season", "episode"}),
 		controllers.GetQuotes,
 	)
+	router.GET("/quotes/random", controllers.GetRandomQuote)
 
 	ipAddress := os.Getenv("IPADDR")
 	router.Run(ipAddress)

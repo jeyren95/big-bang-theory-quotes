@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"math/rand"
 	"net/http"
 
 	"golang.org/x/text/cases"
@@ -49,4 +50,27 @@ func GetQuotes(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{"quotes": quotes})
+}
+
+func GetRandomQuote(ctx *gin.Context) {
+	count, err := queries.GetQuoteCount()
+
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Something went wrong",
+		})
+		return
+	}
+
+	selected := rand.Intn(count)
+	quote, err := queries.GetQuoteById(selected)
+
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Something went wrong",
+		})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, quote)
 }

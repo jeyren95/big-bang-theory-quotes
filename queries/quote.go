@@ -68,7 +68,7 @@ func GetAllQuotes() ([]*models.Quote, error) {
 }
 
 func GetQuotesByCharacter(character string) ([]*models.Quote, error) {
-	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character = $1")
+	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character LIKE CONCAT('%', $1, '%')")
 
 	if err != nil {
 		return nil, err
@@ -140,7 +140,7 @@ func GetQuotesBySeasonAndEpisode(season string, episode string) ([]*models.Quote
 }
 
 func GetQuotesByCharacterAndSeason(character string, season string) ([]*models.Quote, error) {
-	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character = $1 AND season = $2")
+	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character LIKE CONCAT('%', $1, '%') AND season = $2")
 
 	if err != nil {
 		return nil, err
@@ -164,7 +164,7 @@ func GetQuotesByCharacterAndSeason(character string, season string) ([]*models.Q
 }
 
 func GetQuotesByAllParams(character string, season string, episode string) ([]*models.Quote, error) {
-	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character = $1 AND season = $2 AND episode = $3")
+	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character LIKE CONCAT('%', $1, '%') AND season = $2 AND episode = $3")
 
 	if err != nil {
 		return nil, err

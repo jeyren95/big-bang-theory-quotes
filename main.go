@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log/slog"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -14,11 +15,12 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
-//	@title			Big Bang Theory Quotes API
-//	@version		1.0
-//	@description	API that returns quotes from the sitcom show Big Bang Theory
-//	@host			localhost:8080
+// @title			Big Bang Theory Quotes API
+// @version		1.0
+// @description	API that returns quotes from the sitcom show Big Bang Theory
+// @host			localhost:8080
 func main() {
+	slog.Info("Started server")
 	db.DbConnect()
 	seed.Seed()
 

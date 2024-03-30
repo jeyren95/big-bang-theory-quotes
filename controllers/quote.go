@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"log/slog"
 	"math/rand"
 	"net/http"
 
@@ -54,6 +55,7 @@ func GetQuotes(ctx *gin.Context) {
 	}
 
 	if err != nil {
+		slog.Error("Something went wrong", "error", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Something went wrong",
 		})
@@ -72,8 +74,8 @@ func GetQuotes(ctx *gin.Context) {
 //	@Failure	500	{object}	models.ErrorResponse
 func GetRandomQuote(ctx *gin.Context) {
 	count, err := queries.GetQuoteCount()
-
 	if err != nil {
+		slog.Error("Something went wrong", "error", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Something went wrong",
 		})
@@ -82,8 +84,8 @@ func GetRandomQuote(ctx *gin.Context) {
 
 	selected := rand.Intn(count)
 	quote, err := queries.GetQuoteById(selected)
-
 	if err != nil {
+		slog.Error("Something went wrong", "error", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Something went wrong",
 		})

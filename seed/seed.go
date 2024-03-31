@@ -2,7 +2,7 @@ package seed
 
 import (
 	"encoding/json"
-	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/jeyren95/big-bang-theory-quotes/models"
@@ -11,7 +11,6 @@ import (
 
 func Seed() {
 	data, err := os.ReadFile("quotes.json")
-
 	if err != nil {
 		panic("Failed to read JSON file")
 	}
@@ -24,6 +23,5 @@ func Seed() {
 	for i := 0; i < len(quotes); i++ {
 		queries.InsertQuote(quotes[i])
 	}
-
-	fmt.Print("Successfully migrated seed data\n")
+	slog.Info("Successfully migrated seed data")
 }

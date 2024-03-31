@@ -2,7 +2,7 @@ package queries
 
 import (
 	"database/sql"
-	"fmt"
+	"log/slog"
 
 	"github.com/jeyren95/big-bang-theory-quotes/db"
 	"github.com/jeyren95/big-bang-theory-quotes/models"
@@ -14,7 +14,6 @@ func scanRows(rows *sql.Rows) ([]*models.Quote, error) {
 	for rows.Next() {
 		quote := new(models.Quote)
 		err := rows.Scan(&quote.Id, &quote.Quote, &quote.Character, &quote.Season, &quote.Episode, &quote.Title)
-
 		if err != nil {
 			return nil, err
 		}
@@ -27,16 +26,15 @@ func scanRows(rows *sql.Rows) ([]*models.Quote, error) {
 
 func InsertQuote(quote models.Quote) error {
 	statement, err := db.DB.Prepare("INSERT INTO quote(quote, character, season, episode, title) VALUES($1, $2, $3, $4, $5)")
-
 	if err != nil {
-		fmt.Print(err)
+		slog.Error("Something went wrong", "error", err)
 		return err
 	}
 	defer statement.Close()
 
 	_, err = statement.Exec(quote.Quote, quote.Character, quote.Season, quote.Episode, quote.Title)
-
 	if err != nil {
+		slog.Error("InsertQuote", "scan rows", err)
 		return err
 	}
 
@@ -45,7 +43,6 @@ func InsertQuote(quote models.Quote) error {
 
 func GetQuoteById(id int) (*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE id = $1")
-
 	if err != nil {
 		return nil, err
 	}
@@ -54,6 +51,7 @@ func GetQuoteById(id int) (*models.Quote, error) {
 
 	quote := new(models.Quote)
 	if err = statement.QueryRow(id).Scan(&quote.Id, &quote.Quote, &quote.Character, &quote.Season, &quote.Episode, &quote.Title); err != nil {
+		slog.Error("GetQuoteById", "id", id, "query row", err)
 		return nil, err
 	}
 
@@ -62,15 +60,13 @@ func GetQuoteById(id int) (*models.Quote, error) {
 
 func GetAllQuotes() ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote")
-
 	if err != nil {
-		fmt.Print(err)
+		slog.Error(err)
 		return nil, err
 	}
 	defer statement.Close()
 
 	rows, err := statement.Query()
-
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +82,6 @@ func GetAllQuotes() ([]*models.Quote, error) {
 
 func GetQuotesByCharacter(character string) ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character LIKE CONCAT('%', $1, '%')")
-
 	if err != nil {
 		return nil, err
 	}
@@ -95,6 +90,7 @@ func GetQuotesByCharacter(character string) ([]*models.Quote, error) {
 
 	rows, err := statement.Query(character)
 	if err != nil {
+		slog.Error("GetQuotesByCharacter", "Character", character, "query", err)
 		return nil, err
 	}
 
@@ -110,7 +106,6 @@ func GetQuotesByCharacter(character string) ([]*models.Quote, error) {
 
 func GetQuotesBySeason(season string) ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE season = $1")
-
 	if err != nil {
 		return nil, err
 	}
@@ -119,6 +114,7 @@ func GetQuotesBySeason(season string) ([]*models.Quote, error) {
 
 	rows, err := statement.Query(season)
 	if err != nil {
+		slog.Error("GetQuotesBySeason", "Season", season, "query", err)
 		return nil, err
 	}
 
@@ -134,7 +130,6 @@ func GetQuotesBySeason(season string) ([]*models.Quote, error) {
 
 func GetQuotesBySeasonAndEpisode(season string, episode string) ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE season = $1 AND episode = $2")
-
 	if err != nil {
 		return nil, err
 	}
@@ -143,6 +138,7 @@ func GetQuotesBySeasonAndEpisode(season string, episode string) ([]*models.Quote
 
 	rows, err := statement.Query(season, episode)
 	if err != nil {
+		slog.Error("GetQuotesBySeasonAndEpisode", "Season", season, "Episode", episode, "query", err)
 		return nil, err
 	}
 
@@ -158,7 +154,6 @@ func GetQuotesBySeasonAndEpisode(season string, episode string) ([]*models.Quote
 
 func GetQuotesByCharacterAndSeason(character string, season string) ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character LIKE CONCAT('%', $1, '%') AND season = $2")
-
 	if err != nil {
 		return nil, err
 	}
@@ -167,6 +162,7 @@ func GetQuotesByCharacterAndSeason(character string, season string) ([]*models.Q
 
 	rows, err := statement.Query(character, season)
 	if err != nil {
+		slog.Error("GetQuotesByCharacterAndSeason", "Season", season, "Character", character, "query", err)
 		return nil, err
 	}
 
@@ -182,7 +178,6 @@ func GetQuotesByCharacterAndSeason(character string, season string) ([]*models.Q
 
 func GetQuotesByAllParams(character string, season string, episode string) ([]*models.Quote, error) {
 	statement, err := db.DB.Prepare("SELECT * FROM quote WHERE character LIKE CONCAT('%', $1, '%') AND season = $2 AND episode = $3")
-
 	if err != nil {
 		return nil, err
 	}
@@ -191,6 +186,8 @@ func GetQuotesByAllParams(character string, season string, episode string) ([]*m
 
 	rows, err := statement.Query(character, season, episode)
 	if err != nil {
+
+		slog.Error("GetQuotesByAllParams", "Season", season, "Character", character, "Episode", episode, "query", err)
 		return nil, err
 	}
 
@@ -205,7 +202,6 @@ func GetQuotesByAllParams(character string, season string, episode string) ([]*m
 
 func GetQuoteCount() (int, error) {
 	statement, err := db.DB.Prepare("SELECT COUNT(*) FROM quote")
-
 	if err != nil {
 		return -1, err
 	}
@@ -215,6 +211,8 @@ func GetQuoteCount() (int, error) {
 	var count int
 
 	if err = statement.QueryRow().Scan(&count); err != nil {
+
+		slog.Error("GetQuoteCount", "QueryRow", err)
 		return -1, err
 	}
 

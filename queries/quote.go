@@ -27,13 +27,14 @@ func scanRows(rows *sql.Rows) ([]*models.Quote, error) {
 func InsertQuote(quote models.Quote) error {
 	statement, err := db.DB.Prepare("INSERT INTO quote(quote, character, season, episode, title) VALUES($1, $2, $3, $4, $5)")
 	if err != nil {
-		slog.Error(err)
+		slog.Error("Something went wrong", "error", err)
 		return err
 	}
 	defer statement.Close()
 
 	_, err = statement.Exec(quote.Quote, quote.Character, quote.Season, quote.Episode, quote.Title)
 	if err != nil {
+		slog.Error("InsertQuote", "scan rows", err)
 		return err
 	}
 

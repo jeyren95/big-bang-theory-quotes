@@ -55,7 +55,6 @@ func GetQuotes(ctx *gin.Context) {
 	}
 
 	if err != nil {
-		slog.Error("Something went wrong", "error", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Something went wrong",
 		})
@@ -85,7 +84,6 @@ func GetRandomQuote(ctx *gin.Context) {
 	selected := rand.Intn(count)
 	quote, err := queries.GetQuoteById(selected)
 	if err != nil {
-		slog.Error("Something went wrong", "error", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Something went wrong",
 		})

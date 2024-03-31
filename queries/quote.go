@@ -51,6 +51,7 @@ func GetQuoteById(id int) (*models.Quote, error) {
 
 	quote := new(models.Quote)
 	if err = statement.QueryRow(id).Scan(&quote.Id, &quote.Quote, &quote.Character, &quote.Season, &quote.Episode, &quote.Title); err != nil {
+		slog.Error("GetQuoteById", "id", id, "query row", err)
 		return nil, err
 	}
 
@@ -89,6 +90,7 @@ func GetQuotesByCharacter(character string) ([]*models.Quote, error) {
 
 	rows, err := statement.Query(character)
 	if err != nil {
+		slog.Error("GetQuotesByCharacter", "Character", character, "query", err)
 		return nil, err
 	}
 
@@ -112,6 +114,7 @@ func GetQuotesBySeason(season string) ([]*models.Quote, error) {
 
 	rows, err := statement.Query(season)
 	if err != nil {
+		slog.Error("GetQuotesBySeason", "Season", season, "query", err)
 		return nil, err
 	}
 
@@ -135,6 +138,7 @@ func GetQuotesBySeasonAndEpisode(season string, episode string) ([]*models.Quote
 
 	rows, err := statement.Query(season, episode)
 	if err != nil {
+		slog.Error("GetQuotesBySeasonAndEpisode", "Season", season, "Episode", episode, "query", err)
 		return nil, err
 	}
 
@@ -158,6 +162,7 @@ func GetQuotesByCharacterAndSeason(character string, season string) ([]*models.Q
 
 	rows, err := statement.Query(character, season)
 	if err != nil {
+		slog.Error("GetQuotesByCharacterAndSeason", "Season", season, "Character", character, "query", err)
 		return nil, err
 	}
 
@@ -181,6 +186,8 @@ func GetQuotesByAllParams(character string, season string, episode string) ([]*m
 
 	rows, err := statement.Query(character, season, episode)
 	if err != nil {
+
+		slog.Error("GetQuotesByAllParams", "Season", season, "Character", character, "Episode", episode, "query", err)
 		return nil, err
 	}
 
@@ -204,6 +211,8 @@ func GetQuoteCount() (int, error) {
 	var count int
 
 	if err = statement.QueryRow().Scan(&count); err != nil {
+
+		slog.Error("GetQuoteCount", "QueryRow", err)
 		return -1, err
 	}
 

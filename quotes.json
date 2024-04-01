@@ -1,98 +1,98 @@
 [
   {
     "quote": "If the height of a single step is off by as little as two millimeters, most people will trip.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "I have a very wide circle. I have 212 friends on MySpace.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "Today we tried masturbating for money.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "In the winter, that seat is close enough to the radiator to remain warm and yet not so close to cause perspiration. In the summer, it's in a cross breeze created by opening windows there and there. It faces the television at an angle that is neither direct, and thus discouraging conversation nor so far wide as to create a parallax distortion.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "It took you 4 years to get through high school?",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "Is this the high IQ sperm bank?",
-    "character": "Leonard",
+    "character": "Leonard Hofstadter",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "We live together, but in separate, heterosexual bedrooms.",
-    "character": "Leonard",
+    "character": "Leonard Hofstadter",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "We have a combined IQ of 360, we should be able to find out how to get into a stupid building.",
-    "character": "Leonard",
+    "character": "Leonard Hofstadter",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "Our babies will be smart and beautiful.",
-    "character": "Leonard",
+    "character": "Leonard Hofstadter",
     "season": 1,
     "episode": 1,
     "title": "Pilot"
   },
   {
     "quote": "Thailand has had the fork since the latter half of the 19th century. Interestingly, they don't actually put the fork in their mouth, they use it to put the food on a spoon, which then goes into their mouth.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 2,
     "title": "The Big Bran Hypothesis"
   },
   {
     "quote": "Evolution has made women sensitive to high-pitch noises while they sleep, so that they'll be roused by a crying baby. If you want to avoid waking her, speak in a lower register.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 2,
     "title": "The Big Bran Hypothesis"
   },
   {
     "quote": "Grab a napkin homey, you just got served.",
-    "character": "Wolowitz",
+    "character": "Howard Wolowitz",
     "season": 1,
     "episode": 2,
     "title": "The Big Bran Hypothesis"
   },
   {
     "quote": "Hold on honey, men at work.",
-    "character": "Wolowitz",
+    "character": "Howard Wolowitz",
     "season": 1,
     "episode": 2,
     "title": "The Big Bran Hypothesis"
   },
   {
     "quote": "I was working with luminous fish and I thought, hey, loom!",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 4,
     "title": "The Luminous Fish Effect"
@@ -120,37 +120,44 @@
   },
   {
     "quote": "When people are upset, the cultural convention is to bring them hot beverages.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 6,
     "title": "The Middle Earth Paradigm"
   },
   {
     "quote": "There, there.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 6,
     "title": "The Middle Earth Paradigm"
   },
   {
     "quote": "Sure, cut the foreigner in half. There's a billion more from where I came from.",
-    "character": "Raj",
+    "character": "Rajesh Koothrappali",
     "season": 1,
     "episode": 7,
     "title": "The Dumping Paradox"
   },
   {
     "quote": "You laugh now, you just wait till you need tech support.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 7,
     "title": "The Dumping Paradox"
   },
   {
     "quote": "Virgin diet Cuba Libre please.",
-    "character": "Sheldon",
+    "character": "Sheldon Cooper",
     "season": 1,
     "episode": 8,
     "title": "The Grasshopper Experiment"
+  },
+  {
+    "quote": "I just have to make sure that if I'm a synthetic human, I'll still be Jewish.",
+    "character": "Howard Wolowitz",
+    "season": 1,
+    "episode": 9,
+    "title": "The Cooper-Hofstadter Polarization"
   }
 ]

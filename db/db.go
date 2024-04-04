@@ -3,7 +3,6 @@ package db
 import (
 	"database/sql"
 	"embed"
-	"log/slog"
 	"os"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -20,7 +19,6 @@ func DbConnect() {
 	var err error
 	DB, err = sql.Open("sqlite3", sqliteDsn)
 	if err != nil {
-		slog.Error("unable to open database", "error", err)
 		panic(err)
 	}
 

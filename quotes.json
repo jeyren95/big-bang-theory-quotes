@@ -159,5 +159,33 @@
     "season": 1,
     "episode": 9,
     "title": "The Cooper-Hofstadter Polarization"
+  },
+  {
+    "quote": "It must be humbling to suck at so many different levels.",
+    "character": "Sheldon Cooper",
+    "season": 1,
+    "episode": 11,
+    "title": "The Pancake Batter Anomaly"
+  },
+  {
+    "quote": "Code milky green.",
+    "character": "Leonard Hofstadter",
+    "season": 1,
+    "episode": 11,
+    "title": "The Pancake Batter Anomaly"
+  },
+  {
+    "quote": "Dear Lord, not code milky green.",
+    "character": "Howard Wolowitz",
+    "season": 1,
+    "episode": 11,
+    "title": "The Pancake Batter Anomaly"
+  },
+  {
+    "quote": "Can you sing Soft Kitty?",
+    "character": "Sheldon Cooper",
+    "season": 1,
+    "episode": 11,
+    "title": "The Pancake Batter Anomaly"
   }
 ]

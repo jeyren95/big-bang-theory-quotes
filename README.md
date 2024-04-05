@@ -9,13 +9,40 @@ Users may retrieve quotes from this API based on the following:
 2. Season
 3. Episode
 
-# How to start
-```
+# Getting started
+
+### Clone the repository
+You can clone this repository by this following command:
+``` bash
 git clone https://github.com/jeyren95/big-bang-theory-quotes
 cd big-bang-theory-quotes
-cp .env.example .env
-go run main.go
 ```
+
+### Initialize module
+Go project modules file is `go.mod`. You can get the Go project modules by running this following command:
+``` bash
+go mod tidy
+```
+
+### Install goose (if not installed)
+Goose needed for database migration. You can install goose by running this following command:
+``` bash
+go install github.com/pressly/goose/v3/cmd/goose@latest
+```
+
+### Start build and migrating process
+Build project and migrate needed table for the database by running this following command:
+``` bash
+make init
+```
+
+### Run!
+Finally, run the project by running this following command:
+
+``` bash
+make run
+```
+This project runs in `0.0.0.0:8080` by default. You can change it by overriding `IPADDR` variable in `.env` file.
 
 # Deployment
 This API is currently a WIP, and is only available on localhost

@@ -10,12 +10,12 @@ Users may retrieve quotes from this API based on the following:
 3. Episode
 
 # Getting started
-## Clone repository and retrieve modules
+## Clone repository and download necessary dependencies
 ``` bash
 git clone https://github.com/jeyren95/big-bang-theory-quotes
 cd big-bang-theory-quotes
 cp .example.env .env
-go mod tidy
+go mod download
 ```
 
 ## Install goose

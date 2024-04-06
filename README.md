@@ -24,25 +24,23 @@ Go project modules file is `go.mod`. You can get the Go project modules by runni
 go mod tidy
 ```
 
-### Install goose (if not installed)
-Goose needed for database migration. You can install goose by running this following command:
+### Install goose (if not already)
+`pressly/goose` needed for database migration. You can install goose by running this following command:
 ``` bash
 go install github.com/pressly/goose/v3/cmd/goose@latest
 ```
 
-### Start build and migrating process
-Build project and migrate needed table for the database by running this following command:
-``` bash
-make init
-```
+### Setting up environment variable (optional)
+This project use `.env` files to include environment variables. There are variables you can set up to suit your needs:
+- `IPADDR`: This is your API endpoint. Default is set to `0.0.0.0:8080`
+- `SQLITE_DSN`: This is the file where the quotes saved into. Default is set to `big_bang_theory_quotes.db`
 
 ### Run!
-Finally, run the project by running this following command:
-
+Run the project by running this following command:
 ``` bash
 make run
 ```
-This project runs in `0.0.0.0:8080` by default. You can change it by overriding `IPADDR` variable in `.env` file.
+This project runs in the endpoint `IPADDR` from `.env`. Default is set to `0.0.0.0:8080`.
 
 # Deployment
 This API is currently a WIP, and is only available on localhost

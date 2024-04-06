@@ -10,37 +10,32 @@ Users may retrieve quotes from this API based on the following:
 3. Episode
 
 # Getting started
-
-### Clone the repository
-You can clone this repository by this following command:
+## Setup
 ``` bash
 git clone https://github.com/jeyren95/big-bang-theory-quotes
 cd big-bang-theory-quotes
-```
-
-### Initialize module
-Go project modules file is `go.mod`. You can get the Go project modules by running this following command:
-``` bash
+cp .example.env .env
 go mod tidy
 ```
 
-### Install goose (if not already)
+## Install goose
 `pressly/goose` needed for database migration. You can install goose by running this following command:
 ``` bash
 go install github.com/pressly/goose/v3/cmd/goose@latest
 ```
 
-### Setting up environment variable (optional)
-This project use `.env` files to include environment variables. There are variables you can set up to suit your needs:
-- `IPADDR`: This is your API endpoint. Default is set to `0.0.0.0:8080`
-- `SQLITE_DSN`: This is the file where the quotes saved into. Default is set to `big_bang_theory_quotes.db`
-
-### Run!
-Run the project by running this following command:
+## Run the project
+Run the project using a build
 ``` bash
+make migrate.up
 make run
 ```
-This project runs in the endpoint `IPADDR` from `.env`. Default is set to `0.0.0.0:8080`.
+
+Or, use go run
+``` bash
+make migate.up
+go run main.go
+```
 
 # Deployment
 This API is currently a WIP, and is only available on localhost

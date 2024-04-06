@@ -12,7 +12,7 @@ migrate.up:
 	cd ..
 
 migrate.down:
-	goose down
+	goose -dir $(DB_MIGRATIONS_DIR) sqlite3 $(SQLITE_DSN) down
 
 run:
 	./main

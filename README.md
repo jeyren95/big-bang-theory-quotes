@@ -10,7 +10,7 @@ Users may retrieve quotes from this API based on the following:
 3. Episode
 
 # Getting started
-## Setup
+## Clone repository and retrieve modules
 ``` bash
 git clone https://github.com/jeyren95/big-bang-theory-quotes
 cd big-bang-theory-quotes

@@ -1,13 +1,17 @@
-init: migrate
+build: migrate.up
 	go build main.go
 
-migrate:
+migrate.up:
 	cp .env.example .env
 	cd db
-	goose sqlite3 ./big_bang_theory_quotes.db up
+        include .env
+	DB_MIGRATIONS_DIR = $(PWD)/db/migrations
+	EXPORT SQLITE_DSN
+	
+	goose -dir  $(DB_MIGRATIONS_DIR) sqlite3 $(SQLITE_DSN) up
 	cd ..
 
-down:
+migrate.down:
 	goose down
 
 run:

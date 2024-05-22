@@ -194,5 +194,89 @@
     "season": 1,
     "episode": 13,
     "title": "The Bat Jar Conjecture"
+  },
+  {
+    "quote": "I guess that makes me large breasts.",
+    "character": "Howard Wolowitz",
+    "season": 1,
+    "episode": 14,
+    "title": "The Nerdvana Annihilation"
+  },
+  {
+    "quote": "Yeah, well my people invented circumcision.",
+    "character": "Howard Wolowitz",
+    "season": 1,
+    "episode": 15,
+    "title": "The Pork Chop Indeterminacy"
+  },
+  {
+    "quote": "Hey, look at me, I don't have a foreskin.",
+    "character": "Rajesh Koothrappali",
+    "season": 1,
+    "episode": 15,
+    "title": "The Pork Chop Indeterminacy"
+  },
+  {
+    "quote": "Why not put a little mocha in the latte?",
+    "character": "Rajesh Koothrappali",
+    "season": 1,
+    "episode": 15,
+    "title": "The Pork Chop Indeterminacy"
+  },
+  {
+    "quote": "What 12 year old wants a motorized dirt bike?",
+    "character": "Sheldon Cooper",
+    "season": 1,
+    "episode": 16,
+    "title": "The Peanut Reaction"
+  },
+  {
+    "quote": "You thought that the opposite of loser was community college graduate?",
+    "character": "Sheldon Cooper",
+    "season": 2,
+    "episode": 1,
+    "title": "The Bad Fish Paradigm"
+  },
+  {
+    "quote": "Oooh, rush me to the burn unit.",
+    "character": "Leslie Winkle",
+    "season": 2,
+    "episode": 2,
+    "title": "The Codpiece Topology"
+  },
+  {
+    "quote": "Hop, you little plumber. Hop, hop, hop.",
+    "character": "Sheldon Cooper",
+    "season": 2,
+    "episode": 2,
+    "title": "The Codpiece Topology"
+  },
+  {
+    "quote": "And I'm not insane, my mother had me tested.",
+    "character": "Sheldon Cooper",
+    "season": 2,
+    "episode": 4,
+    "title": "The Griffin Equivalency"
+  },
+	{
+    "quote": "You're like the Jar Jar Binks of the Hofstadter family.",
+    "character": "Rajesh Koothrappali",
+    "season": 2,
+    "episode": 15,
+    "title": "The Maternal Capacitance"
+  },
+	{
+    "quote": "No one calls me Moonpie but Meemaw.",
+    "character": "Sheldon Cooper",
+    "season": 2,
+    "episode": 17,
+    "title": "The Terminator Decoupling"
+  },
+	{
+    "quote": "She calls me Moon Pie because I am nummy nummy and she could just eat me up.",
+    "character": "Sheldon Cooper",
+    "season": 2,
+    "episode": 17,
+    "title": "The Terminator Decoupling"
   }
 ]
